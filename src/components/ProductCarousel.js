@@ -23,7 +23,7 @@ const ProductCarousel = () => {
   ) : (
     <Carousel 
       pause='hover' 
-      className='bg-dark'
+      className='bg-primary'
       interval={1000}
       >
       {products.map((product) => (
