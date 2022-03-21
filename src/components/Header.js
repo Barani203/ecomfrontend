@@ -20,7 +20,7 @@ const Header = () => {
     return (
         <header>
             <Navbar 
-                    bg="muted" 
+                    bg="success" 
                     variant="dark"
                     expand="lg"
                     collapseOnSelect>
