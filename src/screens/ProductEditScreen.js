@@ -54,52 +54,52 @@ const ProductEditScreen = ({ match, history }) => {
     
   }, [dispatch, history, productId, product , successUpdate])
 
-  // const uploadFileHandler = async (e) =>{
-  //   const file = e.target.files[0]
-  //   const formData = new FormData()
-  //   formData.append('image', file)
-  //   setUploading(true)
+  const uploadFileHandler = async (e) =>{
+    const file = e.target.files[0]
+    const formData = new FormData()
+    formData.append('image', file)
+    setUploading(true)
 
-  //   try {
-  //       const config ={
-  //         headers:{
-  //           'Content-Type': 'multipart/form-data'
-  //         }
-  //       }
-        
-  //     const {data} = await axios.post('https://ecombackend2.herokuapp.com/api/upload', formData, config)
-
-  //     setImage(data)
-  //     setUploading(false)
-
-  //   } catch (error) {
-  //     console.log(error)
-  //     setUploading(false)
-  //   }
-  // }
-
-  async function uploadFileHandler() {
-    const data = new FormData();
-    data.append("file", image);
-    data.append("upload_preset", "oevdavnz");
     try {
-      setUploading(true);
-      let res = await fetch(
-        "https://api.cloudinary.com/v1_1/db72yvohy/image/upload",
-        {
-          method: "post",
-          body: data,
+        const config ={
+          headers:{
+            'Content-Type': 'multipart/form-data'
+          }
         }
-      );
-      // CLOUDINARY_URL=cloudinary://568597417153877:do_Aat3-nHIlC0nYB2WXb-krL6g@db72yvohy
-      const urlData = await res.json();
-      setUploading(false);
-      return urlData.url;
+        
+      const {data} = await axios.post('https://ecombackend2.herokuapp.com/api/upload', formData, config)
+
+      setImage(data)
+      setUploading(false)
+
     } catch (error) {
-      setUploading(false);
-      console.log(error);
+      console.log(error)
+      setUploading(false)
     }
   }
+
+  // async function uploadFileHandler() {
+  //   const data = new FormData();
+  //   data.append("file", image);
+  //   data.append("upload_preset", "oevdavnz");
+  //   try {
+  //     setUploading(true);
+  //     let res = await fetch(
+  //       "https://api.cloudinary.com/v1_1/db72yvohy/image/upload",
+  //       {
+  //         method: "post",
+  //         body: data,
+  //       }
+  //     );
+  //     // CLOUDINARY_URL=cloudinary://568597417153877:do_Aat3-nHIlC0nYB2WXb-krL6g@db72yvohy
+  //     const urlData = await res.json();
+  //     setUploading(false);
+  //     return urlData.url;
+  //   } catch (error) {
+  //     setUploading(false);
+  //     console.log(error);
+  //   }
+  // }
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(
