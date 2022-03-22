@@ -58,7 +58,7 @@ const ProductEditScreen = ({ match, history }) => {
     const file = e.target.files[0]
     const formData = new FormData()
     formData.append('image', file)
-    formData.append("upload_preset", "oevdavnz");
+    // formData.append("upload_preset", "oevdavnz");
     setUploading(true)
 
     try {
@@ -68,7 +68,7 @@ const ProductEditScreen = ({ match, history }) => {
           }
         }
         
-      const {data} = await axios.post('/api/upload', formData, config)
+      const {data} = await axios.post('https://ecombackend2.herokuapp.com/api/upload', formData, config)
       
       setImage(data)
       setUploading(false)
