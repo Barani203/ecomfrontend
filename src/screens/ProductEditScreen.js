@@ -93,10 +93,10 @@ const ProductEditScreen = ({ match, history }) => {
       );
       // CLOUDINARY_URL=cloudinary://568597417153877:do_Aat3-nHIlC0nYB2WXb-krL6g@db72yvohy
       const urlData = await res.json();
-      setUploadingImg(false);
+      setUploading(false);
       return urlData.url;
     } catch (error) {
-      setUploadingImg(false);
+      setUploading(false);
       console.log(error);
     }
   }
