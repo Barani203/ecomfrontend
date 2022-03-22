@@ -58,6 +58,7 @@ const ProductEditScreen = ({ match, history }) => {
     const file = e.target.files[0]
     const formData = new FormData()
     formData.append('image', file)
+    formData.append("upload_preset", "oevdavnz");
     setUploading(true)
 
     try {
@@ -68,7 +69,7 @@ const ProductEditScreen = ({ match, history }) => {
         }
         
       const {data} = await axios.post('https://api.cloudinary.com/v1_1/db72yvohy/image/upload', formData, config)
-      // /api/upload
+      // api/upload
       setImage(data)
       setUploading(false)
 
