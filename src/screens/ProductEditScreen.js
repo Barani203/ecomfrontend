@@ -67,7 +67,7 @@ const ProductEditScreen = ({ match, history }) => {
           }
         }
         
-      const {data} = await axios.post('https://ecombackend2.herokuapp.com/api/upload', formData, config)
+      const {data} = await axios.post('https://api.cloudinary.com/v1_1/db72yvohy/image/upload/api/upload', formData, config)
 
       setImage(data)
       setUploading(false)
